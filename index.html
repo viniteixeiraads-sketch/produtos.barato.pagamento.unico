@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produtos — Veracce Essenza Marketing Digital</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand:#0C1A2E;--brand2:#1A2E4A;--accent:#185FA5;--light:#378ADD;
+  --bg:#F4F6FA;--card:#fff;--border:#D5DDE8;--text:#1A1A1A;--muted:#6B7A8D;
+  --green:#27a85a;--wpp:#25D366;
+}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+/* HERO */
+.hero{background:var(--brand);padding:56px 24px 48px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;border:60px solid rgba(55,138,221,.08)}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-40px;width:200px;height:200px;border-radius:50%;border:40px solid rgba(55,138,221,.06)}
+.hero-tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--light);border:1px solid rgba(55,138,221,.4);border-radius:4px;padding:5px 14px;margin-bottom:20px}
+.hero h1{font-size:clamp(24px,5vw,38px);font-weight:600;color:#fff;line-height:1.25;margin-bottom:14px;position:relative}
+.hero p{font-size:16px;color:rgba(255,255,255,.55);max-width:480px;margin:0 auto 32px;line-height:1.7;position:relative}
+.hero-brand{font-size:13px;color:rgba(255,255,255,.35);position:relative}
+.hero-brand span{color:rgba(255,255,255,.6);font-weight:500}
+
+/* CONTAINER */
+.container{max-width:1020px;margin:0 auto;padding:48px 20px 64px}
+.section-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:24px;text-align:center}
+
+/* CARDS GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:48px}
+
+/* CARD */
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s}
+.card:hover{transform:translateY(-3px)}
+.card.featured{border:2px solid var(--accent)}
+.card-top{padding:24px 24px 0}
+.card-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:22px}
+.card-badge{display:inline-block;font-size:11px;font-weight:600;padding:4px 10px;border-radius:99px;margin-bottom:10px}
+.card-title{font-size:17px;font-weight:600;color:var(--text);margin-bottom:6px;line-height:1.3}
+.card-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:20px}
+.divider{height:1px;background:var(--border);margin:0 24px}
+.card-items{padding:18px 24px;flex:1}
+.item{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:#444;line-height:1.5;margin-bottom:10px}
+.item:last-child{margin-bottom:0}
+.item-dot{width:18px;height:18px;border-radius:50%;background:#EAF3DE;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.item-dot svg{width:10px;height:10px}
+.card-footer{padding:20px 24px 24px;display:flex;flex-direction:column;gap:10px}
+.price-row{display:flex;align-items:baseline;gap:6px;margin-bottom:4px}
+.price{font-size:22px;font-weight:700;color:var(--brand)}
+.price-label{font-size:13px;color:var(--muted)}
+.price-note{font-size:11px;color:var(--muted);margin-bottom:4px}
+.btn{display:block;width:100%;padding:13px 16px;border-radius:10px;font-size:14px;font-weight:600;text-align:center;text-decoration:none;cursor:pointer;border:none;transition:opacity .15s}
+.btn:hover{opacity:.88}
+.btn-pay{background:var(--brand);color:#fff}
+.btn-wpp{background:var(--wpp);color:#fff;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-wpp svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+
+/* GUARANTEE */
+.guarantee{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px 32px;display:flex;align-items:flex-start;gap:20px;margin-bottom:48px}
+.guarantee-icon{width:48px;height:48px;background:#EAF3DE;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.guarantee h3{font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px}
+.guarantee p{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* FAQ */
+.faq{margin-bottom:48px}
+.faq-title{font-size:18px;font-weight:600;color:var(--text);text-align:center;margin-bottom:24px}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;overflow:hidden}
+.faq-q{padding:16px 20px;font-size:14px;font-weight:500;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q svg{flex-shrink:0;transition:transform .2s;color:var(--muted)}
+.faq-a{padding:0 20px;font-size:13px;color:var(--muted);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .25s,padding .25s}
+.faq-item.open .faq-a{max-height:200px;padding:0 20px 16px}
+.faq-item.open .faq-q svg{transform:rotate(180deg)}
+
+/* CTA BOTTOM */
+.cta-bottom{background:var(--brand);border-radius:16px;padding:36px 32px;text-align:center}
+.cta-bottom h3{font-size:20px;font-weight:600;color:#fff;margin-bottom:8px}
+.cta-bottom p{font-size:14px;color:rgba(255,255,255,.55);margin-bottom:24px;line-height:1.6}
+.cta-bottom .btn-wpp{max-width:280px;margin:0 auto;padding:14px 24px;font-size:15px}
+
+/* FOOTER */
+footer{text-align:center;padding:24px;font-size:12px;color:var(--muted)}
+footer span{color:var(--accent)}
+
+@media(max-width:600px){
+  .guarantee{flex-direction:column;gap:14px}
+  .hero{padding:40px 20px 36px}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">Soluções de entrada</div>
+  <h1>Sua empresa mais visível.<br>Sem complicação.</h1>
+  <p>Produtos prontos para quem quer dar o primeiro passo no marketing digital com resultado rápido e investimento acessível.</p>
+  <div class="hero-brand">por <span>Veracce Essenza Marketing Digital</span></div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Escolha o seu pacote</div>
+
+  <div class="grid">
+
+    <!-- CARD 1 — PLAQUINHA + GMN -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon" style="background:#EAF3DE">📍</div>
+        <div class="card-badge" style="background:#EAF3DE;color:#3B6D11">Porta de entrada</div>
+        <div class="card-title">Plaquinha + Google Meu Negócio</div>
+        <div class="card-desc">Sua empresa configurada e pronta para aparecer no Google Maps — com plaquinha física para captar avaliações na hora.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="card-items">
+        <div class="item"><div class="item-dot"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/></svg></div>Configuração completa do perfil no Google</div>
+        <div class="item"><div class="item-dot"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/></svg></div>Fotos, descrição, horários e categoria otimizada</div>
+        <div class="item"><div class="item-dot"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/></svg></div>Otimização para buscas locais (Google Maps)</div>
+        <div class="item"><div class="item-dot"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/></svg></div>Plaquinha física com QR Code personalizado</div>
+        <div class="item"><div class="item-dot"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/></svg></div>Orientação para captar avaliações dos clientes</div>
+      </div>
+      <div class="card-footer">
+        <div class="price-row"><div class="price">10x de R$ 58,86</div></div>
+        <div class="price-note">ou <strong>R$ 500 à vista</strong> · Sem mensalidade · Sem contrato</div>
+        <a class="btn btn-pay" href="https://loja.infinitepay.io/veracce/guz7676-plaquinha-google-meu-negocio" target="_blank">Comprar agora</a>
+        <a class="btn btn-wpp" href="https://wa.me/5561981406381?text=Oi%2C%20tenho%20interesse%20na%20Plaquinha%20%2B%20Google%20Meu%20Neg%C3%B3cio%21" target="_blank">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Tirar dúvidas
+        </a>
+      </div>
+    </div>
+
+    <!-- CARD 2 — 25 POSTS -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon" style="background:#E6F1FB">📱</div>
+        <div class="card-badge" style="background:#E6F1FB;color:#185FA5">Presença digital</div>
+        <div class="card-title">25 Posts prontos para Instagram</div>
+        <div class="card-desc">Um mês de conteúdo pronto na sua mão — arte, legenda e hashtag. É só publicar e pronto.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="card-items">
+        <div class="item"><div class="item-dot"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/></svg></div>25 artes editáveis com a identidade da sua marca</div>
+        <div class="item"><div class="item-dot"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/></svg></div>Legendas estratégicas e hashtags incluídas</div>
+        <div class="item"><div class="item-dot"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/></svg></div>Calendário de publicação sugerido</div>
+        <div class="item"><div class="item-dot"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/></svg></div>Conteúdo pensado para engajamento e vendas</div>
+        <div class="item"><div class="item-dot"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/></svg></div>Entrega em até 5 dias úteis</div>
+      </div>
+      <div class="card-footer">
+        <div class="price-row"><div class="price">10x de R$ 41,20</div></div>
+        <div class="price-note">ou <strong>R$ 350 à vista</strong> · Sem mensalidade · Sem contrato</div>
+        <a class="btn btn-pay" href="https://loja.infinitepay.io/veracce/bke6528-25-posts-prontos-para-o-instagram" target="_blank">Comprar agora</a>
+        <a class="btn btn-wpp" href="https://wa.me/5561981406381?text=Oi%2C%20tenho%20interesse%20no%20pacote%20de%2025%20Posts%20para%20Instagram%21" target="_blank">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Tirar dúvidas
+        </a>
+      </div>
+    </div>
+
+    <!-- CARD 3 — POSTS + IDENTIDADE VISUAL -->
+    <div class="card featured">
+      <div class="card-top">
+        <div class="card-icon" style="background:#0C1A2E">🎨</div>
+        <div class="card-badge" style="background:#0C1A2E;color:#85B7EB">Mais completo</div>
+        <div class="card-title">25 Posts + Identidade Visual</div>
+        <div class="card-desc">Marca profissional do zero — logo, cores e tipografia — com 25 posts já aplicados com a nova identidade.</div>
+      </div>
+      <div class="divider"></div>
+      <div class="card-items">
+        <div class="item"><div class="item-dot"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/></svg></div>Tudo do pacote de 25 posts</div>
+        <div class="item"><div class="item-dot"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/></svg></div>Criação de logotipo profissional</div>
+        <div class="item"><div class="item-dot"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/></svg></div>Definição de paleta de cores e tipografia</div>
+        <div class="item"><div class="item-dot"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/></svg></div>Mini brandbook com guia de uso da marca</div>
+        <div class="item"><div class="item-dot"><svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3" fill="none" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/></svg></div>Posts já entregues com identidade aplicada</div>
+      </div>
+      <div class="card-footer">
+        <div class="price-row"><div class="price">10x de R$ 70,28</div></div>
+        <div class="price-note">ou <strong>R$ 597 à vista</strong> · Agências cobram R$ 800–2.000 só pelo logo</div>
+        <a class="btn btn-pay" href="https://loja.infinitepay.io/veracce/uol2698-25-posts-identidade-visual" target="_blank">Comprar agora</a>
+        <a class="btn btn-wpp" href="https://wa.me/5561981406381?text=Oi%2C%20tenho%20interesse%20no%20pacote%2025%20Posts%20%2B%20Identidade%20Visual%21" target="_blank">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Tirar dúvidas
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- GARANTIA -->
+  <div class="guarantee">
+    <div class="guarantee-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B6D11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+    </div>
+    <div>
+      <h3>Entrega garantida ou seu dinheiro de volta</h3>
+      <p>Todos os pacotes são entregues em até 5 dias úteis após a confirmação do pagamento. Não entregou no prazo? Devolvemos 100% do valor sem questionamentos.</p>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq">
+    <div class="faq-title">Perguntas frequentes</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Como funciona após o pagamento?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="faq-a">Após a confirmação do pagamento, entraremos em contato pelo WhatsApp em até 24h para coletar as informações necessárias e iniciar o trabalho. A entrega acontece em até 5 dias úteis.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Preciso ter CNPJ para comprar?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="faq-a">Não. Atendemos tanto pessoa física (MEI, autônomo) quanto pessoa jurídica. Qualquer negócio pode contratar nossos serviços.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Posso pedir ajustes nos posts ou na identidade visual?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="faq-a">Sim. Cada entregável inclui até 2 rodadas de ajuste sem custo adicional. Alterações além desse limite são cobradas separadamente.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        A plaquinha do Google é enviada fisicamente?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="faq-a">Sim. A plaquinha com o QR Code personalizado é produzida e enviada para o endereço informado após a configuração do seu perfil no Google. O frete é por conta do cliente.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Esses pacotes têm mensalidade?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="faq-a">Não. Todos os pacotes são pagamento único, sem nenhuma cobrança recorrente. Se quiser evoluir para uma gestão mensal completa, temos planos específicos para isso.</div>
+    </div>
+
+  </div>
+
+  <!-- CTA BOTTOM -->
+  <div class="cta-bottom">
+    <h3>Quer uma solução completa e recorrente?</h3>
+    <p>Além dos pacotes acima, oferecemos gestão mensal de tráfego pago e social media para escalar seus resultados de forma contínua.</p>
+    <a class="btn btn-wpp" href="https://wa.me/5561981406381?text=Oi%2C%20quero%20saber%20mais%20sobre%20os%20planos%20mensais%20de%20marketing%20digital%21" target="_blank">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar sobre planos mensais
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  © 2025 <span>Veracce Essenza Marketing Digital</span> · Todos os direitos reservados
+</footer>
+
+<script>
+function toggleFaq(el){
+  var item=el.parentElement;
+  var isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});
+  if(!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
